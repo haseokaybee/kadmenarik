@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import WhatsappFloat from "../components/Whatsappfloat";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import WhatsappFloat from "../components/Whatsappfloat.jsx";
 import { useEffect, useRef, useState } from "react";
 
 
