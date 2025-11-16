@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+:root {
+  --font-primary: "Montserrat", serif;
+  --font-secondary: "Tahoma", sans-serif;
+}
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 50%, #dfe2e7 100%);
+}
+
+
+
+/* Fade-in animation */
+.gallery-card {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover zoom effect */
+.gallery-card:hover {
+  transform: scale(1.06);
+  transition: 0.3s ease;
+}
+
+.skeleton {
+  animation: pulse 1.5s infinite;
+  background: linear-gradient(-90deg, #806d6d 0%, #ecebeb 50%, #f3f3f3 100%);
+  background-size: 400% 400%;
+}
+
+@keyframes pulse {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-200 { animation-delay: .2s; }
+.delay-500 { animation-delay: .5s; }
+.delay-700 { animation-delay: .7s; }
+
+@keyframes bounceHover {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  60%  { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+.whatsapp-bounce:hover {
+  animation: bounceHover 0.5s ease;
+}
+
+body {
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 50%, #dfe2e7 100%);
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.type-cursor::after {
+  content: "|";
+  animation: blink 0.8s infinite;
+  margin-left: 4px;
+  color: #ec4899;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.mobile-link {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideIn 0.4s forwards ease-out;
+}
+
+.mobile-link.delay-0 {
+  animation-delay: 0.05s;
+}
+
+.mobile-link.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.mobile-link.delay-2 {
+  animation-delay: 0.25s;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gallery-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.gallery-track {
+  display: inline-flex; /* Safari friendly */
+  gap: 1.5rem;
+  animation: gallery-scroll 30s linear infinite;
+  -webkit-animation: gallery-scroll 30s linear infinite; /* Safari */
+}
+
+/* Safari + iOS compatible keyframes */
+@-webkit-keyframes gallery-scroll {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@keyframes gallery-scroll {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+/* Optional: pause on hover (desktop only) */
+.gallery-wrapper:hover .gallery-track {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+}
