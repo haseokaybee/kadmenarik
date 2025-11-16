@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import WhatsappFloat from "../components/Whatsappfloat.jsx";
+import WhatsappFloat from "../components/WhatsappFloat";
 
 const designs = [
   { id: 1, image: "/designs/kad1.jpeg", category: "Floral", name: "Floral Pink Charm" },
